@@ -1,0 +1,32 @@
+name: Auto Update HDFC BSE Data
+
+on:
+  schedule:
+    - cron: "0 6 * * *"   # runs every day at 6 AM UTC
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run data extraction
+        run: python hdfc_bse_extractor.py
+
+      - name: Commit and push results
+        run: |
+          git config --global user.name "AutoUpdater"
+          git config --global user.email "bot@example.com"
+          git add HDFC_Bank_BSE_Data.xlsx
+          git commit -m "Auto update BSE data" || echo "No changes to commit"
+          git push
