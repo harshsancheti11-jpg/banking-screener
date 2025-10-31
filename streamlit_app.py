@@ -21,7 +21,7 @@ st.title("🏦 Indian Banking KPI Screener (2020–2025)")
 # Sidebar filters
 st.sidebar.header("🔍 Filter")
 banks = st.sidebar.multiselect("Select Banks", sorted(df["bank_name"].unique()), default=["HDFC Bank"])
-years = st.sidebar.multiselect("Select Years", sorted(df["fiscal_year"].unique(), reverse=True), default=[2025, 2024, 2023])
+years = st.sidebar.multiselect("Select Years", sorted(df["year"].unique()), reverse=True, default=[2021, 2020])
 metric = st.sidebar.selectbox("Select Metric", [
     "deposits","casa_ratio","aum","gnpa","nnpa","pat","nim","roa",
     "cost_to_income","capital_adequacy_ratio","liquidity_coverage_ratio",
