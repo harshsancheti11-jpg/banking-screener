@@ -35,7 +35,7 @@ metric = st.sidebar.selectbox("Select Metric", [
 ])
 
 # Filtered data
-filtered = df[(df["bank_name"].isin(banks)) & (df["fiscal_year"].isin(years))]
+filtered = df[(df["bank_name"].isin(banks)) & (df["year"].isin(years))]
 
 # Display table
 st.subheader("📊 KPI Data")
