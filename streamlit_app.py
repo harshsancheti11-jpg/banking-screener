@@ -6,8 +6,13 @@ st.set_page_config(page_title="Banking KPI Screener", layout="wide")
 
 # Load data
 @st.cache_data
+@st.cache_data
 def load_data():
-    return pd.read_csv("data/bank_kpi_data.csv")
+    df = pd.read_csv("data/bank_kpi_data.csv", encoding="utf-8-sig")
+    df.columns = df.columns.str.strip().str.lower()  # clean column names
+    return df
+
+df = load_data()
 
 df = load_data()
 
