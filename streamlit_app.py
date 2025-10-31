@@ -39,7 +39,7 @@ filtered = df[(df["bank_name"].isin(banks)) & (df["year"].isin(years))]
 
 # Display table
 st.subheader("📊 KPI Data")
-st.dataframe(filtered.set_index(["bank_name", "fiscal_year"]))
+st.dataframe(filtered.set_index(["bank_name", "year"]))
 
 # Plot metric over time
 if not filtered.empty:
