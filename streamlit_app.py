@@ -12,9 +12,9 @@ def load_data():
     df.columns = df.columns.str.strip().str.lower()  # clean column names
     return df
 
-df = load_data()
+from data_extractor import get_bank_data
+df = get_bank_data("500180")  # HDFC Bank example
 
-df = load_data()
 
 st.title("🏦 Indian Banking KPI Screener (2020–2025)")
 
