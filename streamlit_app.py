@@ -43,8 +43,8 @@ st.dataframe(filtered.set_index(["bank_name", "year"]))
 
 # Plot metric over time
 if not filtered.empty:
-    fig = px.line(filtered, x="fiscal_year", y=metric, color="bank_name", markers=True,
-                  title=f"{metric.replace('_',' ').title()} Trend")
+    fig = px.line(filtered, x="year", y=metric, color="bank_name", markers=True,
+              title=f"{metric.replace('_', ' ').title()} Trend")
     fig.update_layout(xaxis_title="Fiscal Year", yaxis_title=metric.replace('_',' ').title())
     st.plotly_chart(fig, use_container_width=True)
 else:
